@@ -1,0 +1,192 @@
+[
+  {
+    "user_id": "user_123",
+    "id": "txn_123_01",
+    "date": "2026-01-15",
+    "amount": -45.2,
+    "merchant": "Netflix",
+    "category": "ENTERTAINMENT",
+    "account": "Checking",
+    "balance": 820.15
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_02",
+    "date": "2025-11-29",
+    "amount": -82.3,
+    "merchant": "Vattenfall",
+    "category": "UTILITIES",
+    "account": "Checking",
+    "balance": -12.45
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_03",
+    "date": "2026-02-01",
+    "amount": 2400,
+    "merchant": "ACME Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 2440.5
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_04",
+    "date": "2025-12-03",
+    "amount": -910,
+    "merchant": "Landlord AG",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 310.2
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_05",
+    "date": "2025-10-07",
+    "amount": -54.9,
+    "merchant": "Rewe",
+    "category": "GROCERIES",
+    "account": "Checking",
+    "balance": 1544.8
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_06",
+    "date": "2026-02-17",
+    "amount": -14.99,
+    "merchant": "Spotify",
+    "category": "ENTERTAINMENT",
+    "account": "Checking",
+    "balance": 1289.14
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_07",
+    "date": "2025-09-02",
+    "amount": 2400,
+    "merchant": "ACME Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 2400
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_08",
+    "date": "2025-09-03",
+    "amount": -900,
+    "merchant": "Landlord AG",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 1500
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_09",
+    "date": "2026-01-31",
+    "amount": -35.6,
+    "merchant": "Apotheke Mitte",
+    "category": "HEALTH",
+    "account": "Checking",
+    "balance": 854.55
+  },
+  {
+    "user_id": "user_123",
+    "id": "txn_123_10",
+    "date": "2025-12-28",
+    "amount": -9.5,
+    "merchant": "Late Fee",
+    "category": "BANK_FEES",
+    "account": "Checking",
+    "balance": -8.95
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_01",
+    "date": "2025-09-01",
+    "amount": 4100,
+    "merchant": "Nordstern GmbH Payroll",
+    "category": "SALARY",
+    "account": "Main Checking",
+    "balance": 4100
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_02",
+    "date": "2025-09-02",
+    "amount": -1250,
+    "merchant": "Wohnbau Berlin",
+    "category": "RENT",
+    "account": "Main Checking",
+    "balance": 2850
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_03",
+    "date": "2025-11-14",
+    "amount": -64.45,
+    "merchant": "Edeka",
+    "category": "GROCERIES",
+    "account": "Main Checking",
+    "balance": 3225.21
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_04",
+    "date": "2026-02-03",
+    "amount": 4100,
+    "merchant": "Nordstern GmbH Payroll",
+    "category": "SALARY",
+    "account": "Main Checking",
+    "balance": 5180.33
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_05",
+    "date": "2026-01-06",
+    "amount": -1260,
+    "merchant": "Wohnbau Berlin",
+    "category": "RENT",
+    "account": "Main Checking",
+    "balance": 3901.25
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_01",
+    "date": "2025-10-03",
+    "amount": -970,
+    "merchant": "Wohnungsservice",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": -151.34
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_02",
+    "date": "2025-09-05",
+    "amount": 1200,
+    "merchant": "Freelance Payout",
+    "category": "INCOME",
+    "account": "Checking",
+    "balance": 1200
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_03",
+    "date": "2026-01-20",
+    "amount": -22.5,
+    "merchant": "Late Fee",
+    "category": "BANK_FEES",
+    "account": "Checking",
+    "balance": -204.85
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_04",
+    "date": "2026-02-11",
+    "amount": 900,
+    "merchant": "Freelance Payout",
+    "category": "INCOME",
+    "account": "Checking",
+    "balance": 644.2
+  }
+]

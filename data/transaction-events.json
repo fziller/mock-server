@@ -1,0 +1,45 @@
+[
+  {
+    "user_id": "user_123",
+    "type": "TRANSACTION_ADDED",
+    "transaction": {
+      "id": "txn_evt_add_1",
+      "date": "2026-02-18",
+      "amount": -18.45,
+      "merchant": "BVG",
+      "category": "TRANSPORT",
+      "account": "Checking",
+      "balance": 1270.69
+    }
+  },
+  {
+    "user_id": "user_123",
+    "type": "TRANSACTION_UPDATED",
+    "transaction_id": "txn_123_01",
+    "balance": 780
+  },
+  {
+    "user_id": "user_123",
+    "type": "TRANSACTION_DELETED",
+    "transaction_id": "txn_123_10"
+  },
+  {
+    "user_id": "user_456",
+    "type": "TRANSACTION_UPDATED",
+    "transaction_id": "txn_456_03",
+    "balance": 3180.76
+  },
+  {
+    "user_id": "user_789",
+    "type": "TRANSACTION_ADDED",
+    "transaction": {
+      "id": "txn_evt_add_789",
+      "date": "2026-02-19",
+      "amount": -43.2,
+      "merchant": "Aldi",
+      "category": "GROCERIES",
+      "account": "Checking",
+      "balance": 601
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "user_123",
+    "name": "Marta Vogel",
+    "currency": "EUR"
+  },
+  {
+    "id": "user_456",
+    "name": "Leon Fischer",
+    "currency": "EUR"
+  },
+  {
+    "id": "user_789",
+    "name": "Sara Demir",
+    "currency": "EUR"
+  }
+]
