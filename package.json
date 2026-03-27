@@ -5,7 +5,6 @@
   "type": "module",
   "description": "Local mock server for the Reliability Index Explorer frontend challenge.",
   "scripts": {
-    "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "generate:large": "node scripts/generate-large-transactions.js"
   },
