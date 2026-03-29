@@ -587,12 +587,18 @@ function findInsertionIndex(transactions, candidateTransaction) {
   return transactions.findIndex((transaction) => transaction.id === nextTransaction.id);
 }
 
-function adjustFollowingBalances(transactions, changedTransactionId, delta) {
+function getAccountTransactions(transactions, account) {
+  return sortTransactionsChronologically(
+    transactions.filter((transaction) => transaction.account === account),
+  );
+}
+
+function adjustFollowingBalances(transactions, changedTransactionId, delta, account) {
   if (delta === 0) {
     return;
   }
 
-  const sortedTransactions = sortTransactionsChronologically(transactions);
+  const sortedTransactions = getAccountTransactions(transactions, account);
   let shouldAdjust = false;
 
   for (const transaction of sortedTransactions) {
@@ -624,8 +630,9 @@ function createAddedTransactionDetails(userId, previousAccount) {
 
 function createAddedTransaction(state, userId, userTransactions) {
   const lastTransaction = sortTransactionsChronologically(userTransactions).at(-1);
-  const previousBalance = lastTransaction?.balance ?? 1000;
   const details = createAddedTransactionDetails(userId, lastTransaction?.account);
+  const lastAccountTransaction = getAccountTransactions(userTransactions, details.account).at(-1);
+  const previousBalance = lastAccountTransaction?.balance ?? 1000;
   const transaction = {
     user_id: userId,
     id: `txn_evt_${state.nextTransactionId++}`,
@@ -639,7 +646,7 @@ function createAddedTransaction(state, userId, userTransactions) {
 
   const insertionIndex = findInsertionIndex(userTransactions, transaction);
   userTransactions.splice(insertionIndex, 0, transaction);
-  adjustFollowingBalances(userTransactions, transaction.id, details.amount);
+  adjustFollowingBalances(userTransactions, transaction.id, details.amount, details.account);
 
   return {
     type: 'TRANSACTION_ADDED',
@@ -652,7 +659,12 @@ function createUpdatedTransaction(userTransactions) {
   const previousBalance = transaction.balance;
   const nextBalance = Number((transaction.balance + (Math.random() * 40 - 20)).toFixed(2));
   transaction.balance = nextBalance;
-  adjustFollowingBalances(userTransactions, transaction.id, nextBalance - previousBalance);
+  adjustFollowingBalances(
+    userTransactions,
+    transaction.id,
+    nextBalance - previousBalance,
+    transaction.account,
+  );
 
   return {
     type: 'TRANSACTION_UPDATED',
@@ -664,7 +676,7 @@ function createUpdatedTransaction(userTransactions) {
 function createDeletedTransaction(userTransactions) {
   const transactionIndex = Math.floor(Math.random() * userTransactions.length);
   const [transaction] = userTransactions.splice(transactionIndex, 1);
-  adjustFollowingBalances(userTransactions, transaction.id, -transaction.amount);
+  adjustFollowingBalances(userTransactions, transaction.id, -transaction.amount, transaction.account);
 
   return {
     type: 'TRANSACTION_DELETED',

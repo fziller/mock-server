@@ -7,7 +7,7 @@
     "merchant": "Netflix",
     "category": "ENTERTAINMENT",
     "account": "Checking",
-    "balance": 820.15
+    "balance": 398.1
   },
   {
     "user_id": "user_123",
@@ -17,7 +17,7 @@
     "merchant": "Vattenfall",
     "category": "UTILITIES",
     "account": "Checking",
-    "balance": -12.45
+    "balance": 1362.8
   },
   {
     "user_id": "user_123",
@@ -27,7 +27,7 @@
     "merchant": "ACME Payroll",
     "category": "SALARY",
     "account": "Checking",
-    "balance": 2440.5
+    "balance": 2762.5
   },
   {
     "user_id": "user_123",
@@ -37,7 +37,7 @@
     "merchant": "Landlord AG",
     "category": "RENT",
     "account": "Checking",
-    "balance": 310.2
+    "balance": 452.8
   },
   {
     "user_id": "user_123",
@@ -47,7 +47,7 @@
     "merchant": "Rewe",
     "category": "GROCERIES",
     "account": "Checking",
-    "balance": 1544.8
+    "balance": 1445.1
   },
   {
     "user_id": "user_123",
@@ -57,7 +57,7 @@
     "merchant": "Spotify",
     "category": "ENTERTAINMENT",
     "account": "Checking",
-    "balance": 1289.14
+    "balance": 2747.51
   },
   {
     "user_id": "user_123",
@@ -87,7 +87,7 @@
     "merchant": "Apotheke Mitte",
     "category": "HEALTH",
     "account": "Checking",
-    "balance": 854.55
+    "balance": 362.5
   },
   {
     "user_id": "user_123",
@@ -97,7 +97,7 @@
     "merchant": "Late Fee",
     "category": "BANK_FEES",
     "account": "Checking",
-    "balance": -8.95
+    "balance": 443.3
   },
   {
     "user_id": "user_456",
