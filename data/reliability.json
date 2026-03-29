@@ -58,5 +58,45 @@
       "Essential payments are inconsistent",
       "Negative balance periods reduce resilience"
     ]
+  },
+  {
+    "user_id": "user_321",
+    "from": "2026-02-20",
+    "currency": "EUR",
+    "reliability_index": 57,
+    "score_band": "MEDIUM",
+    "metrics": {
+      "income_regularity": 0.68,
+      "income_coverage_ratio": 1.04,
+      "essential_payments_consistency": 0.74,
+      "good_months": 3,
+      "negative_balance_days": 2,
+      "late_fee_events": 1
+    },
+    "drivers": [
+      "Income is present in most months",
+      "Coverage is only slightly above essential expenses",
+      "A few negative balance days reduce stability"
+    ]
+  },
+  {
+    "user_id": "user_654",
+    "from": "2026-02-20",
+    "currency": "EUR",
+    "reliability_index": 66,
+    "score_band": "MEDIUM",
+    "metrics": {
+      "income_regularity": 0.79,
+      "income_coverage_ratio": 1.32,
+      "essential_payments_consistency": 0.63,
+      "good_months": 4,
+      "negative_balance_days": 1,
+      "late_fee_events": 0
+    },
+    "drivers": [
+      "Strong inflows offset several spending spikes",
+      "Coverage remains positive but is volatile",
+      "High discretionary swings make the score less stable"
+    ]
   }
 ]

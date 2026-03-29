@@ -32,7 +32,7 @@ npm run generate:large
 
 ### `GET /api/users/:userId/reliability?from=YYYY-MM-DD`
 
-Returns the reliability score payload for a user and scoring window.
+Returns the reliability score payload for a user and scoring window. The response starts from the seed entry in `data/reliability.json` and is then re-derived from the current in-memory transaction state, so streamed transaction events can change later reliability responses for the same user and window.
 
 ### `GET /api/users/:userId/transactions?from=YYYY-MM-DD&to=YYYY-MM-DD`
 
@@ -48,15 +48,13 @@ Opens a Server-Sent Events (SSE) stream for the user. The server keeps the conne
 
 The mock server automatically generates transaction events on a timer after startup. Clients should load the initial transaction snapshot via `/transactions` first and then subscribe to `/transaction-events` for live updates.
 
+Guaranteed `TRANSACTION_ADDED` events are emitted in a per-user round-robin cycle so every seeded user receives fresh transactions over time. Interleaved `TRANSACTION_UPDATED` and `TRANSACTION_DELETED` events still occur for users with existing history.
+
 Example:
 
 ```bash
 curl -N http://localhost:3004/api/users/user_123/transaction-events
 ```
-
-### `GET /api/users/:userId/cashflow?from=YYYY-MM-DD&to=YYYY-MM-DD`
-
-Returns monthly cashflow data for the requested range.
 
 ### `GET /health`
 
@@ -70,9 +68,16 @@ All mock data is split into separate JSON files so it can be changed quickly:
 - `data/reliability.json`
 - `data/transactions.json`
 - `data/transactions.large.json`
-- `data/cashflow.json`
 
-The server loads the base transaction datasets on startup and uses them to initialize an in-memory transaction store for live event generation. Reliability, user, and cashflow data continue to come from the JSON files in `data/`.
+The server loads the base transaction datasets on startup and uses them to initialize an in-memory transaction store for live event generation. Reliability seeds continue to come from `data/reliability.json`, but responses are recalculated from the current transaction state. Derived client views such as monthly cashflow should be aggregated from `/transactions` instead of a dedicated endpoint.
+
+## Seeded User Scenarios
+
+- `user_123` (`Marta Vogel`): heavy-user performance scenario with the large dataset and mostly stable behavior.
+- `user_456` (`Leon Fischer`): high-confidence positive case with regular salary income and no negative balances.
+- `user_789` (`Sara Demir`): risk case with irregular income, repeated fees, and negative-balance periods.
+- `user_321` (`Jonas Weber`): near break-even case with thin buffers and occasional negative dips.
+- `user_654` (`Nadia Karim`): volatile case with strong inflows but large discretionary spending spikes.
 
 ## Updating Mock Data
 

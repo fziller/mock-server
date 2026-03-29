@@ -13,5 +13,15 @@
     "id": "user_789",
     "name": "Sara Demir",
     "currency": "EUR"
+  },
+  {
+    "id": "user_321",
+    "name": "Jonas Weber",
+    "currency": "EUR"
+  },
+  {
+    "id": "user_654",
+    "name": "Nadia Karim",
+    "currency": "EUR"
   }
 ]

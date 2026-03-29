@@ -101,6 +101,16 @@
   },
   {
     "user_id": "user_456",
+    "id": "txn_456_03",
+    "date": "2025-10-01",
+    "amount": 4100,
+    "merchant": "Nordstern GmbH Payroll",
+    "category": "SALARY",
+    "account": "Main Checking",
+    "balance": 6950
+  },
+  {
+    "user_id": "user_456",
     "id": "txn_456_01",
     "date": "2025-09-01",
     "amount": 4100,
@@ -108,6 +118,16 @@
     "category": "SALARY",
     "account": "Main Checking",
     "balance": 4100
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_07",
+    "date": "2025-11-01",
+    "amount": 4100,
+    "merchant": "Nordstern GmbH Payroll",
+    "category": "SALARY",
+    "account": "Main Checking",
+    "balance": 9800
   },
   {
     "user_id": "user_456",
@@ -121,43 +141,103 @@
   },
   {
     "user_id": "user_456",
-    "id": "txn_456_03",
-    "date": "2025-11-14",
-    "amount": -64.45,
-    "merchant": "Edeka",
-    "category": "GROCERIES",
-    "account": "Main Checking",
-    "balance": 3225.21
-  },
-  {
-    "user_id": "user_456",
-    "id": "txn_456_04",
-    "date": "2026-02-03",
+    "id": "txn_456_09",
+    "date": "2025-12-01",
     "amount": 4100,
     "merchant": "Nordstern GmbH Payroll",
     "category": "SALARY",
     "account": "Main Checking",
-    "balance": 5180.33
+    "balance": 13720
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_12",
+    "date": "2026-01-31",
+    "amount": 4100,
+    "merchant": "Nordstern GmbH Payroll",
+    "category": "SALARY",
+    "account": "Main Checking",
+    "balance": 15300
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_04",
+    "date": "2025-10-03",
+    "amount": -1250,
+    "merchant": "Wohnbau Berlin",
+    "category": "RENT",
+    "account": "Main Checking",
+    "balance": 5700
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_14",
+    "date": "2026-02-24",
+    "amount": 4100,
+    "merchant": "Nordstern GmbH Payroll",
+    "category": "SALARY",
+    "account": "Main Checking",
+    "balance": 19335.55
   },
   {
     "user_id": "user_456",
     "id": "txn_456_05",
+    "date": "2025-11-05",
+    "amount": -180,
+    "merchant": "Stadtwerke Berlin",
+    "category": "UTILITIES",
+    "account": "Main Checking",
+    "balance": 9620
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_06",
+    "date": "2025-12-03",
+    "amount": -1260,
+    "merchant": "Wohnbau Berlin",
+    "category": "RENT",
+    "account": "Main Checking",
+    "balance": 12460
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_08",
     "date": "2026-01-06",
     "amount": -1260,
     "merchant": "Wohnbau Berlin",
     "category": "RENT",
     "account": "Main Checking",
-    "balance": 3901.25
+    "balance": 11200
   },
   {
-    "user_id": "user_789",
-    "id": "txn_789_01",
-    "date": "2025-10-03",
-    "amount": -970,
-    "merchant": "Wohnungsservice",
+    "user_id": "user_456",
+    "id": "txn_456_10",
+    "date": "2026-02-03",
+    "amount": -64.45,
+    "merchant": "Edeka",
+    "category": "GROCERIES",
+    "account": "Main Checking",
+    "balance": 15235.55
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_15",
+    "date": "2026-02-26",
+    "amount": -1270,
+    "merchant": "Wohnbau Berlin",
     "category": "RENT",
-    "account": "Checking",
-    "balance": -151.34
+    "account": "Main Checking",
+    "balance": 18065.55
+  },
+  {
+    "user_id": "user_456",
+    "id": "txn_456_16",
+    "date": "2026-02-27",
+    "amount": -95.1,
+    "merchant": "Rewe",
+    "category": "GROCERIES",
+    "account": "Main Checking",
+    "balance": 17970.45
   },
   {
     "user_id": "user_789",
@@ -171,13 +251,93 @@
   },
   {
     "user_id": "user_789",
+    "id": "txn_789_01",
+    "date": "2025-09-06",
+    "amount": -970,
+    "merchant": "Wohnungsservice",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 230
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_05",
+    "date": "2025-10-03",
+    "amount": -970,
+    "merchant": "Wohnungsservice",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": -740
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_06",
+    "date": "2025-10-05",
+    "amount": -18,
+    "merchant": "Late Fee",
+    "category": "BANK_FEES",
+    "account": "Checking",
+    "balance": -758
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_07",
+    "date": "2025-11-12",
+    "amount": 800,
+    "merchant": "Freelance Payout",
+    "category": "INCOME",
+    "account": "Checking",
+    "balance": 42
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_08",
+    "date": "2025-11-14",
+    "amount": -110,
+    "merchant": "Aldi",
+    "category": "GROCERIES",
+    "account": "Checking",
+    "balance": -68
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_09",
+    "date": "2025-12-03",
+    "amount": -145,
+    "merchant": "Stadtwerke Berlin",
+    "category": "UTILITIES",
+    "account": "Checking",
+    "balance": -213
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_10",
+    "date": "2025-12-27",
+    "amount": 650,
+    "merchant": "Marketplace Settlement",
+    "category": "INCOME",
+    "account": "Checking",
+    "balance": 437
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_11",
+    "date": "2026-01-08",
+    "amount": -980,
+    "merchant": "Wohnungsservice",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": -543
+  },
+  {
+    "user_id": "user_789",
     "id": "txn_789_03",
     "date": "2026-01-20",
     "amount": -22.5,
     "merchant": "Late Fee",
     "category": "BANK_FEES",
     "account": "Checking",
-    "balance": -204.85
+    "balance": -565.5
   },
   {
     "user_id": "user_789",
@@ -187,6 +347,436 @@
     "merchant": "Freelance Payout",
     "category": "INCOME",
     "account": "Checking",
-    "balance": 644.2
+    "balance": 334.5
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_12",
+    "date": "2026-02-21",
+    "amount": -120,
+    "merchant": "Rewe",
+    "category": "GROCERIES",
+    "account": "Checking",
+    "balance": 214.5
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_13",
+    "date": "2026-02-25",
+    "amount": -160,
+    "merchant": "Stadtwerke Berlin",
+    "category": "UTILITIES",
+    "account": "Checking",
+    "balance": 54.5
+  },
+  {
+    "user_id": "user_789",
+    "id": "txn_789_14",
+    "date": "2026-02-28",
+    "amount": -125,
+    "merchant": "Overdraft Fee",
+    "category": "BANK_FEES",
+    "account": "Checking",
+    "balance": -70.5
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_01",
+    "date": "2025-09-01",
+    "amount": 1650,
+    "merchant": "Studio Nord Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 1650
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_02",
+    "date": "2025-09-02",
+    "amount": -1040,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 610
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_03",
+    "date": "2025-09-18",
+    "amount": -220,
+    "merchant": "Rewe",
+    "category": "GROCERIES",
+    "account": "Checking",
+    "balance": 390
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_04",
+    "date": "2025-09-27",
+    "amount": -180,
+    "merchant": "Stadtwerke Berlin",
+    "category": "UTILITIES",
+    "account": "Checking",
+    "balance": 210
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_05",
+    "date": "2025-10-01",
+    "amount": 1650,
+    "merchant": "Studio Nord Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 1860
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_06",
+    "date": "2025-10-03",
+    "amount": -1040,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 820
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_07",
+    "date": "2025-10-10",
+    "amount": -210,
+    "merchant": "Telekom",
+    "category": "UTILITIES",
+    "account": "Checking",
+    "balance": 610
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_08",
+    "date": "2025-10-22",
+    "amount": -180,
+    "merchant": "BVG",
+    "category": "TRANSPORT",
+    "account": "Checking",
+    "balance": 430
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_09",
+    "date": "2025-11-01",
+    "amount": 1650,
+    "merchant": "Studio Nord Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 2080
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_10",
+    "date": "2025-11-03",
+    "amount": -1040,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 1040
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_11",
+    "date": "2025-11-18",
+    "amount": -260,
+    "merchant": "Edeka",
+    "category": "GROCERIES",
+    "account": "Checking",
+    "balance": 780
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_12",
+    "date": "2025-11-29",
+    "amount": -540,
+    "merchant": "IKEA",
+    "category": "SHOPPING",
+    "account": "Checking",
+    "balance": 240
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_13",
+    "date": "2025-12-01",
+    "amount": 1650,
+    "merchant": "Studio Nord Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 1890
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_14",
+    "date": "2025-12-04",
+    "amount": -1040,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 850
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_15",
+    "date": "2025-12-11",
+    "amount": -205,
+    "merchant": "Stadtwerke Berlin",
+    "category": "UTILITIES",
+    "account": "Checking",
+    "balance": 645
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_16",
+    "date": "2025-12-28",
+    "amount": -15,
+    "merchant": "Late Fee",
+    "category": "BANK_FEES",
+    "account": "Checking",
+    "balance": 630
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_17",
+    "date": "2026-01-02",
+    "amount": 1650,
+    "merchant": "Studio Nord Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 2280
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_18",
+    "date": "2026-01-05",
+    "amount": -1040,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 1240
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_19",
+    "date": "2026-01-19",
+    "amount": -310,
+    "merchant": "Apotheke Mitte",
+    "category": "HEALTH",
+    "account": "Checking",
+    "balance": 930
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_20",
+    "date": "2026-01-29",
+    "amount": -290,
+    "merchant": "Aldi",
+    "category": "GROCERIES",
+    "account": "Checking",
+    "balance": 640
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_21",
+    "date": "2026-02-02",
+    "amount": 1650,
+    "merchant": "Studio Nord Payroll",
+    "category": "SALARY",
+    "account": "Checking",
+    "balance": 2290
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_22",
+    "date": "2026-02-05",
+    "amount": -1040,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Checking",
+    "balance": 1250
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_23",
+    "date": "2026-02-22",
+    "amount": -260,
+    "merchant": "Rewe",
+    "category": "GROCERIES",
+    "account": "Checking",
+    "balance": 990
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_24",
+    "date": "2026-02-26",
+    "amount": -205,
+    "merchant": "Telekom",
+    "category": "UTILITIES",
+    "account": "Checking",
+    "balance": 785
+  },
+  {
+    "user_id": "user_321",
+    "id": "txn_321_25",
+    "date": "2026-02-27",
+    "amount": -900,
+    "merchant": "MediaMarkt",
+    "category": "SHOPPING",
+    "account": "Checking",
+    "balance": -115
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_01",
+    "date": "2025-09-03",
+    "amount": 5200,
+    "merchant": "Consulting Invoice",
+    "category": "INCOME",
+    "account": "Business Checking",
+    "balance": 5200
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_02",
+    "date": "2025-09-07",
+    "amount": -1450,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Business Checking",
+    "balance": 3750
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_03",
+    "date": "2025-09-24",
+    "amount": -1800,
+    "merchant": "DB Navigator",
+    "category": "SHOPPING",
+    "account": "Business Checking",
+    "balance": 1950
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_04",
+    "date": "2025-10-12",
+    "amount": 2800,
+    "merchant": "Marketplace Settlement",
+    "category": "INCOME",
+    "account": "Business Checking",
+    "balance": 4750
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_05",
+    "date": "2025-10-28",
+    "amount": -2300,
+    "merchant": "IKEA",
+    "category": "SHOPPING",
+    "account": "Business Checking",
+    "balance": 2450
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_06",
+    "date": "2025-11-05",
+    "amount": 6400,
+    "merchant": "Consulting Invoice",
+    "category": "INCOME",
+    "account": "Business Checking",
+    "balance": 8850
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_07",
+    "date": "2025-11-11",
+    "amount": -3000,
+    "merchant": "MediaMarkt",
+    "category": "SHOPPING",
+    "account": "Business Checking",
+    "balance": 5850
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_08",
+    "date": "2025-12-02",
+    "amount": -1450,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Business Checking",
+    "balance": 4400
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_09",
+    "date": "2025-12-18",
+    "amount": 3500,
+    "merchant": "Freelance Payout",
+    "category": "INCOME",
+    "account": "Business Checking",
+    "balance": 7900
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_10",
+    "date": "2026-01-04",
+    "amount": -4100,
+    "merchant": "MediaMarkt",
+    "category": "SHOPPING",
+    "account": "Business Checking",
+    "balance": 3800
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_11",
+    "date": "2026-01-26",
+    "amount": 5600,
+    "merchant": "Consulting Invoice",
+    "category": "INCOME",
+    "account": "Business Checking",
+    "balance": 9400
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_12",
+    "date": "2026-02-08",
+    "amount": -1450,
+    "merchant": "City Apartments",
+    "category": "RENT",
+    "account": "Business Checking",
+    "balance": 7950
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_13",
+    "date": "2026-02-20",
+    "amount": -620,
+    "merchant": "FitCare",
+    "category": "HEALTH",
+    "account": "Business Checking",
+    "balance": 7330
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_14",
+    "date": "2026-02-24",
+    "amount": 1800,
+    "merchant": "Marketplace Settlement",
+    "category": "INCOME",
+    "account": "Business Checking",
+    "balance": 9130
+  },
+  {
+    "user_id": "user_654",
+    "id": "txn_654_15",
+    "date": "2026-02-27",
+    "amount": -5200,
+    "merchant": "MediaMarkt",
+    "category": "SHOPPING",
+    "account": "Business Checking",
+    "balance": 3930
   }
 ]
