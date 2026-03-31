@@ -32,7 +32,7 @@ npm run generate:large
 
 ### `GET /api/users/:userId/reliability?from=YYYY-MM-DD`
 
-Returns the reliability score payload for a user and scoring window. The response starts from the seed entry in `data/reliability.json` and is then re-derived from the current in-memory transaction state, so streamed transaction events can change later reliability responses for the same user and window.
+Returns the reliability score payload for a user and scoring window. The `from` query parameter defines the start date of the transaction window used for the calculation and is echoed back in the response. The response starts from the user-specific seed entry in `data/reliability.json` and is then re-derived from the current in-memory transaction state, so streamed transaction events can change later reliability responses for the same user and window. The endpoint returns `404` only when no reliability seed exists for the requested user.
 
 ### `GET /api/users/:userId/transactions?from=YYYY-MM-DD&to=YYYY-MM-DD`
 
@@ -69,7 +69,7 @@ All mock data is split into separate JSON files so it can be changed quickly:
 - `data/transactions.json`
 - `data/transactions.large.json`
 
-The server loads the base transaction datasets on startup and uses them to initialize an in-memory transaction store for live event generation. Reliability seeds continue to come from `data/reliability.json`, but responses are recalculated from the current transaction state. Derived client views such as monthly cashflow should be aggregated from `/transactions` instead of a dedicated endpoint.
+The server loads the base transaction datasets on startup and uses them to initialize an in-memory transaction store for live event generation. Reliability seeds continue to come from `data/reliability.json`, but responses are recalculated from the current transaction state using the requested `from` date as the window start. Reliability seeds are user-specific; each user may have at most one seed entry, and the server fails on startup if duplicate seeds are defined. Derived client views such as monthly cashflow should be aggregated from `/transactions` instead of a dedicated endpoint.
 
 ## Seeded User Scenarios
 

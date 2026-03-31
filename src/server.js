@@ -143,6 +143,16 @@ function writeSseComment(res, comment) {
   res.write(`: ${comment}\n\n`);
 }
 
+function logTransactionEvent(userId, payload) {
+  const details =
+    payload.type === 'TRANSACTION_ADDED'
+      ? `${payload.transaction.id} ${payload.transaction.category} ${payload.transaction.amount}`
+      : payload.type === 'TRANSACTION_UPDATED'
+        ? `${payload.transaction_id} balance=${payload.balance}`
+        : payload.transaction_id;
+  console.log(`[event] user=${userId} type=${payload.type} ${details}`);
+}
+
 function isIsoDate(value) {
   return /^\d{4}-\d{2}-\d{2}$/.test(value);
 }
@@ -394,9 +404,12 @@ function createReliabilityDrivers(metrics) {
   return [...positiveSignals.slice(0, 3), ...riskSignals.slice(0, 2)];
 }
 
-function createReliabilityResponse(baselineEntry, baselineRawMetrics, currentRawMetrics) {
+function createReliabilityResponse(baselineEntry, baselineRawMetrics, currentRawMetrics, from) {
   if (!currentRawMetrics) {
-    return baselineEntry;
+    return {
+      ...baselineEntry,
+      from,
+    };
   }
 
   const adjustedMetrics = {
@@ -462,7 +475,7 @@ function createReliabilityResponse(baselineEntry, baselineRawMetrics, currentRaw
 
   return {
     user_id: baselineEntry.user_id,
-    from: baselineEntry.from,
+    from,
     currency: baselineEntry.currency,
     reliability_index: reliabilityIndex,
     score_band: reliabilityIndex >= 80 ? 'HIGH' : reliabilityIndex >= 50 ? 'MEDIUM' : 'LOW',
@@ -484,7 +497,7 @@ function createInitialState() {
   const reliabilityEntries = loadJson('reliability.json');
   const clientsByUser = new Map();
   const transactionsByUser = new Map(users.map((user) => [user.id, []]));
-  const reliabilityByKey = new Map();
+  const reliabilityByUser = new Map();
 
   let maxGeneratedId = 0;
 
@@ -502,8 +515,14 @@ function createInitialState() {
   }
 
   for (const reliabilityEntry of reliabilityEntries) {
+    if (reliabilityByUser.has(reliabilityEntry.user_id)) {
+      throw new Error(
+        `Invalid reliability seed data: multiple entries found for user '${reliabilityEntry.user_id}'`,
+      );
+    }
+
     const userTransactions = transactionsByUser.get(reliabilityEntry.user_id) ?? [];
-    reliabilityByKey.set(`${reliabilityEntry.user_id}:${reliabilityEntry.from}`, {
+    reliabilityByUser.set(reliabilityEntry.user_id, {
       baselineEntry: reliabilityEntry,
       baselineRawMetrics: calculateRawReliabilityMetrics(userTransactions, reliabilityEntry.from),
     });
@@ -513,7 +532,7 @@ function createInitialState() {
     users,
     clientsByUser,
     transactionsByUser,
-    reliabilityByKey,
+    reliabilityByUser,
     nextEventId: 1,
     nextTransactionId: maxGeneratedId + 1,
     nextAddUserIndex: 0,
@@ -716,26 +735,40 @@ function generateTransactionEvent(state) {
   }
 
   state.transactionsByUser.set(targetUser.id, userTransactions);
+  logTransactionEvent(targetUser.id, payload);
   broadcastToUser(state, targetUser.id, payload);
 }
 
 function createRequestHandler(state) {
   return function handleRequest(req, res) {
+    const method = req.method ?? 'UNKNOWN';
     if (!req.url || !req.method) {
       sendError(res, 400, 'Malformed request');
+      console.log(`[request] ${method} <missing-url> -> 400 Malformed request`);
       return;
     }
 
     const url = parseRequest(req);
     const pathname = url.pathname;
+    const logRequest = (statusCode, details = '') => {
+      console.log(`[request] ${method} ${pathname} -> ${statusCode}${details ? ` ${details}` : ''}`);
+    };
+    const respondJson = (statusCode, body, details = '') => {
+      sendJson(res, statusCode, body);
+      logRequest(statusCode, details);
+    };
+    const respondError = (statusCode, message, details) => {
+      sendError(res, statusCode, message, details);
+      logRequest(statusCode, message);
+    };
 
     if (req.method !== 'GET') {
-      sendError(res, 405, 'Method not allowed');
+      respondError(405, 'Method not allowed');
       return;
     }
 
     if (pathname === '/' || pathname === '/health') {
-      sendJson(res, 200, {
+      respondJson(200, {
         service: 'reliability-explorer-mock-server',
         status: 'ok',
         port,
@@ -753,7 +786,7 @@ function createRequestHandler(state) {
     );
 
     if (!routeMatch) {
-      sendError(res, 404, `Route '${pathname}' not found`);
+      respondError(404, `Route '${pathname}' not found`);
       return;
     }
 
@@ -761,6 +794,7 @@ function createRequestHandler(state) {
     const userId = decodeURIComponent(rawUserId);
 
     if (!validateUser(res, userId, state.users)) {
+      logRequest(404, `Unknown user '${userId}'`);
       return;
     }
 
@@ -768,24 +802,25 @@ function createRequestHandler(state) {
       const from = url.searchParams.get('from');
 
       if (!validateDateParam(res, 'from', from)) {
+        logRequest(400, "Invalid or missing 'from'");
         return;
       }
 
-      const result = state.reliabilityByKey.get(`${userId}:${from}`);
+      const result = state.reliabilityByUser.get(userId);
 
       if (!result) {
-        sendError(res, 404, `No reliability data found for user '${userId}' and from '${from}'`);
+        respondError(404, `No reliability data found for user '${userId}'`);
         return;
       }
 
       const transactions = state.transactionsByUser.get(userId) ?? [];
-      sendJson(
-        res,
+      respondJson(
         200,
         createReliabilityResponse(
           result.baselineEntry,
           result.baselineRawMetrics,
           calculateRawReliabilityMetrics(transactions, from),
+          from,
         ),
       );
       return;
@@ -796,16 +831,17 @@ function createRequestHandler(state) {
       const to = url.searchParams.get('to');
 
       if (!validateDateParam(res, 'from', from) || !validateDateParam(res, 'to', to)) {
+        logRequest(400, "Invalid or missing 'from'/'to'");
         return;
       }
 
       if (compareDateStrings(from, to) > 0) {
-        sendError(res, 400, "'from' must be less than or equal to 'to'");
+        respondError(400, "'from' must be less than or equal to 'to'");
         return;
       }
 
       const transactions = state.transactionsByUser.get(userId) ?? [];
-      sendJson(res, 200, filterTransactions(transactions, userId, from, to));
+      respondJson(200, filterTransactions(transactions, userId, from, to));
       return;
     }
 
@@ -819,6 +855,7 @@ function createRequestHandler(state) {
           connectedAt: new Date().toISOString(),
         },
       });
+      logRequest(200, `SSE connected user=${userId}`);
       registerClient(state, userId, res);
       return;
     }
